@@ -23,10 +23,14 @@ class ReceiptWidget extends StatelessWidget {
 Widget _myView(BuildContext context) {
   return Center(
     child: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
-      Text(
-        "Comprobante",
-        style: DefaultTextStyle.of(context).style.apply(fontSizeFactor: 0.5),
+      Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Text(
+          "Comprobante",
+          style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+        ),
       ),
+
       Padding(
         padding: const EdgeInsets.all(8.0),
         child: Text(
@@ -59,6 +63,11 @@ Widget _myView(BuildContext context) {
       ),
       ElevatedButton(
         child: Text('Aceptar'),
+        style: ElevatedButton.styleFrom(
+          primary: Colors.black,
+          onPrimary: Colors.white,
+          onSurface: Colors.grey,
+        ),
         onPressed: () {
           // Navigate to second route when tapped.
         },

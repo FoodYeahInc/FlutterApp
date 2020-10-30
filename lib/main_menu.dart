@@ -22,36 +22,54 @@ Widget _myView(BuildContext context) {
   return Center(
     child: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
       Padding(
-          padding: const EdgeInsets.all(32.0),
+          padding: const EdgeInsets.all(24.0),
           child: Text("Bienvenido(a): Elvis Nunez")
       ),
-      Padding(
-          padding: const EdgeInsets.only(bottom: 16),
-          child: FittedBox(
-            fit: BoxFit.fill, // otherwise the logo will be tiny
-            child: const FlutterLogo(),
-          ),
+      Container(
+        height: 150,
+        alignment: Alignment.center, // This is needed
+        child: Image.asset(
+          'assets/images/profile.jpg',
+          fit: BoxFit.contain,
+          width: 150,
+        ),
       ),
       ElevatedButton(
         child: Text('Menu Semanal'),
-        onPressed: () {
+        style: ButtonStyle(
+          minimumSize: MaterialStateProperty.all<Size>(Size(200, 45)),
+          backgroundColor: MaterialStateProperty.all<Color>(Colors.black),
+        ),        onPressed: () {
           // Navigate to second route when tapped.
         },
       ),
+      const SizedBox(height: 8),
       ElevatedButton(
         child: Text('Platos a la Carta'),
-        onPressed: () {
+        style: ButtonStyle(
+          minimumSize: MaterialStateProperty.all<Size>(Size(200, 45)),
+          backgroundColor: MaterialStateProperty.all<Color>(Colors.black),
+        ),        onPressed: () {
           // Navigate to second route when tapped.
         },
       ),
+      const SizedBox(height: 8),
       ElevatedButton(
         child: Text('Historial de Compras'),
-        onPressed: () {
+        style: ButtonStyle(
+          minimumSize: MaterialStateProperty.all<Size>(Size(200, 45)),
+          backgroundColor: MaterialStateProperty.all<Color>(Colors.black),
+        ),        onPressed: () {
           // Navigate to second route when tapped.
         },
       ),
+      const SizedBox(height: 8),
       ElevatedButton(
         child: Text('Ayudanos a mejorar'),
+        style: ButtonStyle(
+          minimumSize: MaterialStateProperty.all<Size>(Size(200, 45)),
+          backgroundColor: MaterialStateProperty.all<Color>(Colors.black),
+        ),
         onPressed: () {
           // Navigate to second route when tapped.
         },
