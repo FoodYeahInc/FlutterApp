@@ -7,13 +7,13 @@ import 'package:foodyeah/payment.dart';
 import 'package:foodyeah/receipt.dart';
 import 'package:foodyeah/weekly_menu.dart';
 
-void main() => runApp(MaterialApp(title: "Widgets", home: MyApp()));
+void main() => runApp(MaterialApp(title: "Widgets", home: MyApp(), theme: ThemeData(primaryColor: Colors.red)));
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text('ListViews')),
+        appBar: AppBar(title: Text('FoodYeah!')),
         body: ListView(children: <Widget>[
           ListTile(
             title: Text('Menu Principal'),
