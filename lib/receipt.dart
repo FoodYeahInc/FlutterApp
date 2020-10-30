@@ -20,5 +20,45 @@ class ReceiptWidget extends StatelessWidget {
 
 // Reemplaza con tu codigo
 Widget _myView(BuildContext context) {
-  return ListView();
+  return Center(
+    child: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
+      Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Text("Comprobante")
+      ),
+      Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text("Para adquirir su pedido, espere la notificación y muestre el código QR en el mostrador"),
+      ),
+      Padding(
+        padding: const EdgeInsets.only(bottom: 16),
+        child: FittedBox(
+          fit: BoxFit.fill, // otherwise the logo will be tiny
+          child: const FlutterLogo(),
+        ),
+      ),
+      Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Text("Estado: Pendiente"),
+      ),
+      Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Text("Comprado con tarjeta"),
+      ),
+      Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Text("XXXX - XXXX - XXXX - NNNN"),
+      ),
+      Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Text("Fecha: DD/MM/AAAA"),
+      ),
+      ElevatedButton(
+        child: Text('Aceptar'),
+        onPressed: () {
+          // Navigate to second route when tapped.
+        },
+      ),
+    ]),
+  );
 }
