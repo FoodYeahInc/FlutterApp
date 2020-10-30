@@ -23,19 +23,22 @@ class ReceiptWidget extends StatelessWidget {
 Widget _myView(BuildContext context) {
   return Center(
     child: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
-      Padding(padding: const EdgeInsets.all(16.0), child: Text("Comprobante")),
+      Text(
+        "Comprobante",
+        style: DefaultTextStyle.of(context).style.apply(fontSizeFactor: 0.5),
+      ),
       Padding(
         padding: const EdgeInsets.all(8.0),
         child: Text(
             "Para adquirir su pedido, espere la notificación y muestre el código QR en el mostrador"),
       ),
       Container(
-        height: 200,
+        height: 150,
         alignment: Alignment.center, // This is needed
         child: Image.asset(
           'assets/images/qr.png',
           fit: BoxFit.contain,
-          width: 300,
+          width: 150,
         ),
       ),
       Padding(
