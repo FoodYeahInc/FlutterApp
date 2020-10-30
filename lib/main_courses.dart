@@ -6,7 +6,12 @@ import 'package:flutter/material.dart';
 class MainCoursesWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return _myView(context);
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Platos a la Carta"),
+      ),
+      body: _myView(context),
+    );
   }
 }
 

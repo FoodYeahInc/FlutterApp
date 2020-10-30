@@ -6,7 +6,12 @@ import 'package:flutter/material.dart';
 class OrderOverviewWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return _myView(context);
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Resumen del Pedido"),
+      ),
+      body: _myView(context),
+    );
   }
 }
 

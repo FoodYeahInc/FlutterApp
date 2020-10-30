@@ -1,79 +1,83 @@
 import 'package:flutter/material.dart';
+import 'package:foodyeah/main_courses.dart';
+import 'package:foodyeah/main_menu.dart';
+import 'package:foodyeah/order_history.dart';
+import 'package:foodyeah/order_overview.dart';
+import 'package:foodyeah/payment.dart';
+import 'package:foodyeah/receipt.dart';
+import 'package:foodyeah/weekly_menu.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(MaterialApp(title: "Widgets", home: MyApp()));
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'ListViews',
-      theme: ThemeData(
-        primarySwatch: Colors.teal,
-      ),
-      home: Scaffold(
+    return Scaffold(
         appBar: AppBar(title: Text('ListViews')),
-        body: BodyLayout(),
-      ),
-    );
+        body: ListView(children: <Widget>[
+          ListTile(
+            title: Text('Menu Principal'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => MainMenuWidget()),
+              );
+            },
+          ),
+          ListTile(
+            title: Text('Menu Semanal'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => WeeklyMenuWidget()),
+              );
+            },
+          ),
+          ListTile(
+            title: Text('Platos a la Carta'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => MainCoursesWidget()),
+              );
+            },
+          ),
+          ListTile(
+            title: Text('Resumen de Pedido'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => OrderOverviewWidget()),
+              );
+            },
+          ),
+          ListTile(
+            title: Text('Compra con Tarjeta'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => PaymentWidget()),
+              );
+            },
+          ),
+          ListTile(
+            title: Text('Comprobante'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ReceiptWidget()),
+              );
+            },
+          ),
+          ListTile(
+            title: Text('Historial de reservas'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => OrderHistoryWidget()),
+              );
+            },
+          ),
+        ]));
   }
-}
-
-class BodyLayout extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return _myListView(context);
-  }
-}
-
-Widget _myListView(BuildContext context) {
-  return ListView(
-    children: ListTile.divideTiles(
-      context: context,
-      tiles: [
-        ListTile(
-          title: Text('Menu Principal'),
-          onTap: () {
-            print("sun");
-          },
-        ),
-        ListTile(
-          title: Text('Menu Semanal'),
-          onTap: () {
-            print("moon");
-          },
-        ),
-        ListTile(
-          title: Text('Platos a la Carta'),
-          onTap: () {
-            print("star");
-          },
-        ),
-        ListTile(
-          title: Text('Resumen de Pedido'),
-          onTap: () {
-            print("star");
-          },
-        ),
-        ListTile(
-          title: Text('Compra con Tarjeta'),
-          onTap: () {
-            print("star");
-          },
-        ),
-        ListTile(
-          title: Text('Comprobante'),
-          onTap: () {
-            print("star");
-          },
-        ),
-        ListTile(
-          title: Text('Historial de reservas'),
-          onTap: () {
-            print("star");
-          },
-        ),
-      ]
-    ).toList(),
-  );
 }

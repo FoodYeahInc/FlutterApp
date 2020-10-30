@@ -9,7 +9,12 @@ import 'package:flutter/material.dart';
 class ReceiptWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return _myView(context);
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Comprobante"),
+      ),
+      body: _myView(context),
+    );
   }
 }
 

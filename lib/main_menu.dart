@@ -8,7 +8,12 @@ import 'package:flutter/material.dart';
 class MainMenuWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return _myView(context);
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Menu Principal"),
+      ),
+      body: _myView(context),
+    );
   }
 }
 
