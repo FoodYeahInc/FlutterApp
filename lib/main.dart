@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:foodyeah/main_courses.dart';
 import 'package:foodyeah/main_menu.dart';
 import 'package:foodyeah/order_history.dart';
-import 'package:foodyeah/order_overview.dart';
 import 'package:foodyeah/payment.dart';
 import 'package:foodyeah/receipt.dart';
-import 'package:foodyeah/weekly_menu.dart';
-
+import 'package:foodyeah/list_dishes.dart';
+import 'package:foodyeah/login.dart';
+import 'package:foodyeah/order_summary.dart';
 void main() => runApp(MaterialApp(title: "Widgets", home: MyApp(), theme: ThemeData(primaryColor: Colors.red)));
 
 class MyApp extends StatelessWidget {
@@ -15,6 +14,15 @@ class MyApp extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(title: Text('FoodYeah!')),
         body: ListView(children: <Widget>[
+          ListTile(
+            title: Text('Login'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Login()),
+              );
+            },
+          ),
           ListTile(
             title: Text('Menu Principal'),
             onTap: () {
@@ -29,7 +37,7 @@ class MyApp extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => WeeklyMenuWidget()),
+                MaterialPageRoute(builder: (context) => ListDishes(menu: true,)),
               );
             },
           ),
@@ -38,7 +46,7 @@ class MyApp extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => MainCoursesWidget()),
+                MaterialPageRoute(builder: (context) => ListDishes(menu: false,)),
               );
             },
           ),
@@ -47,7 +55,7 @@ class MyApp extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => OrderOverviewWidget()),
+                MaterialPageRoute(builder: (context) => OrderSummary()),
               );
             },
           ),
@@ -77,7 +85,7 @@ class MyApp extends StatelessWidget {
                 MaterialPageRoute(builder: (context) => OrderHistoryWidget()),
               );
             },
-          ),
+          ),          
         ]));
   }
 }
