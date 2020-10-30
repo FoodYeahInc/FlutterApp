@@ -10,6 +10,7 @@ class ReceiptWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text("Comprobante"),
       ),
@@ -22,19 +23,19 @@ class ReceiptWidget extends StatelessWidget {
 Widget _myView(BuildContext context) {
   return Center(
     child: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
+      Padding(padding: const EdgeInsets.all(16.0), child: Text("Comprobante")),
       Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Text("Comprobante")
+        padding: const EdgeInsets.all(8.0),
+        child: Text(
+            "Para adquirir su pedido, espere la notificación y muestre el código QR en el mostrador"),
       ),
-      Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Text("Para adquirir su pedido, espere la notificación y muestre el código QR en el mostrador"),
-      ),
-      Padding(
-        padding: const EdgeInsets.only(bottom: 16),
-        child: FittedBox(
-          fit: BoxFit.fill, // otherwise the logo will be tiny
-          child: const FlutterLogo(),
+      Container(
+        height: 200,
+        alignment: Alignment.center, // This is needed
+        child: Image.asset(
+          'assets/images/qr.png',
+          fit: BoxFit.contain,
+          width: 300,
         ),
       ),
       Padding(
