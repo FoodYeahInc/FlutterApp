@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(OrderHistoryWidget());
-
 class OrderHistoryWidget extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(

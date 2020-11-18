@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:foodyeah/main_menu.dart';
 // Comprobante
 // Muestra un codigo QR validando la compra, además muestra los datos de:
 // Estado del pedido(entregado, pendiente)
@@ -30,7 +30,6 @@ Widget _myView(BuildContext context) {
           style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
         ),
       ),
-
       Padding(
         padding: const EdgeInsets.all(8.0),
         child: Text(
@@ -69,7 +68,11 @@ Widget _myView(BuildContext context) {
           onSurface: Colors.grey,
         ),
         onPressed: () {
-          // Navigate to second route when tapped.
+          Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(builder: (context) => MainMenu()),
+            (Route<dynamic> route)=>false,
+          );
         },
       ),
     ]),

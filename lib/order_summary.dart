@@ -1,6 +1,7 @@
 import 'package:foodyeah/dish.dart';
 import 'package:flutter/material.dart';
-
+import 'package:foodyeah/payment.dart';
+import 'package:foodyeah/list_dishes.dart';
 class OrderSummary extends StatefulWidget {
   @override
   _OrderSummaryState createState() => _OrderSummaryState();
@@ -45,14 +46,14 @@ class _OrderSummaryState extends State<OrderSummary> {
       appBar: AppBar(
         title: Text('Vista previa del pedido'),
       ),
-      body: new Column(        
+      body: new Column(
         children: [
           Flexible(child: buildDishes(), flex: 3),
           Flexible(
             flex: 2,
             child: Column(
               children: [
-                Container(height:20),
+                Container(height: 20),
                 Center(
                     child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -69,15 +70,28 @@ class _OrderSummaryState extends State<OrderSummary> {
                 Container(height: 25),
                 RaisedButton(
                   child: Text('Agregar menus'),
-                  onPressed: () => setState(() => null),
+                  onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => ListDishes(
+                              menu: true,
+                            )),
+                  ),
                 ),
                 RaisedButton(
                   child: Text('Agregar platos a la carta'),
-                  onPressed: () => setState(() => null),
+                  onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => ListDishes(
+                              menu: false,
+                            )),
+                  ),
                 ),
                 RaisedButton(
                   child: Text('Realizar pago'),
-                  onPressed: () => setState(() => null),
+                  onPressed: () => Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => PaymentWidget())),
                 ),
               ],
             ),

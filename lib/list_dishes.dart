@@ -1,6 +1,7 @@
 import 'package:foodyeah/dish.dart';
 import 'package:flutter/material.dart';
-
+import 'package:foodyeah/order_summary.dart';
+//Para ver los platos a la carta y los platos del menu principal
 class ListDishes extends StatefulWidget {
   final bool menu;
   const ListDishes({Key key, this.menu}) : super(key: key);
@@ -64,7 +65,10 @@ class _ListDishesState extends State<ListDishes> {
       floatingActionButton: FloatingActionButton(
           child: Icon(Icons.shopping_cart),
           onPressed: () =>
-              setState(() => null) //TODO: change void to another widget
+          Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => OrderSummary())
+              )
           ),
     );
   }

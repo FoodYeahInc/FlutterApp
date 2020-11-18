@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodyeah/main_menu.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -19,19 +20,23 @@ class _LoginState extends State<Login> {
         Scaffold(
           backgroundColor: Colors.transparent,
           body: Container(
-            padding: EdgeInsets.fromLTRB(MediaQuery.of(context).size.width/5, MediaQuery.of(context).size.height/16, MediaQuery.of(context).size.width/5, 0),
+            padding: EdgeInsets.fromLTRB(
+                MediaQuery.of(context).size.width / 5,
+                MediaQuery.of(context).size.height / 16,
+                MediaQuery.of(context).size.width / 5,
+                0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Center(
                   child: Image(
                     image: AssetImage('assets/images/logo.png'),
-                    width: MediaQuery.of(context).size.width/2,
-                    height: MediaQuery.of(context).size.height/4,
+                    width: MediaQuery.of(context).size.width / 2,
+                    height: MediaQuery.of(context).size.height / 4,
                   ),
                 ),
                 Container(
-                  height: MediaQuery.of(context).size.height/8,
+                  height: MediaQuery.of(context).size.height / 8,
                 ),
                 Center(
                   child: TextField(
@@ -56,7 +61,7 @@ class _LoginState extends State<Login> {
                   ),
                 ),
                 Container(
-                  height: MediaQuery.of(context).size.height/10,
+                  height: MediaQuery.of(context).size.height / 10,
                 ),
                 Center(
                   child: TextField(
@@ -80,12 +85,13 @@ class _LoginState extends State<Login> {
                 ),
                 Container(
                   //vacio, espacio de separación:
-                  height: MediaQuery.of(context).size.height/6,
+                  height: MediaQuery.of(context).size.height / 6,
                 ),
                 Center(
                   child: FlatButton(
                     onPressed: () {
-                      //print(1);
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => MainMenu()));
                     },
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(10.0)),

@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => MainMenuWidget()),
+                MaterialPageRoute(builder: (context) => MainMenu()),
               );
             },
           ),
