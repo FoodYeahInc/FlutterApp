@@ -1,24 +1,34 @@
-import 'package:foodyeah/dish.dart';
 import 'package:flutter/material.dart';
-import 'package:foodyeah/order_summary.dart';
+import 'package:foodyeah/UI/order_summary.dart';
+import 'package:foodyeah/model/dish.dart';
+import 'package:foodyeah/model/usuario.dart';
+import 'package:foodyeah/utils/http_helper.dart';
 //Para ver los platos a la carta y los platos del menu principal
 class ListDishes extends StatefulWidget {
   final bool menu;
-  const ListDishes({Key key, this.menu}) : super(key: key);
+  final Usuario usuario;
+  final ListaProducto dishes;
+  const ListDishes({Key key, this.menu, this.usuario, this.dishes}) : super(key: key);
   @override
   _ListDishesState createState() => _ListDishesState();
 }
 
 class _ListDishesState extends State<ListDishes> {
-  Dishes dishes;
+  HttpHelper helper;
+  @override
+  void initState(){
+    helper = HttpHelper();
+    //initialize
+    super.initState();
+  }
   Widget buildDishes() {
     return ListView.builder(
         padding: EdgeInsets.all(16),
         itemBuilder: (BuildContext context, int i) {
-          if (i < dishes.length() * 2) {
+          if (i < widget.dishes.length() * 2) {
             if (i.isOdd) return Divider();
             final int index = i ~/ 2;
-            return buildrow(dishes.getDish(index));
+            return buildrow(widget.dishes.getDish(index));
           } else {
             return null;
           }
@@ -27,14 +37,13 @@ class _ListDishesState extends State<ListDishes> {
 
   Widget buildrow(Dish dish) {
     return ListTile(
-        title: Text(dish.name),
-        subtitle: dish.description == null ? null : Text(dish.description),
+        title: Text(dish.productName),
         leading: Column(
           children: [
             CircleAvatar(
-              backgroundImage: NetworkImage(dish.image),
+              backgroundImage: NetworkImage(dish.imageUrl),
             ),
-            Text('S/.' + dish.price.toString()),
+            Text('S/.' + dish.productPrice.toString()),
           ],
         ),
         trailing: Row(
@@ -56,7 +65,6 @@ class _ListDishesState extends State<ListDishes> {
 
   @override
   Widget build(BuildContext context) {
-    dishes = new Dishes(widget.menu);
     return Scaffold(
       appBar: AppBar(
         title: widget.menu ? Text('Menu semanal') : Text('Platos a la carta'),

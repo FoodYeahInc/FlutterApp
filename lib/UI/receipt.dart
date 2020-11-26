@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foodyeah/main_menu.dart';
+import 'package:foodyeah/UI/main_menu.dart';
 // Comprobante
 // Muestra un codigo QR validando la compra, además muestra los datos de:
 // Estado del pedido(entregado, pendiente)

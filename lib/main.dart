@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:foodyeah/main_menu.dart';
-import 'package:foodyeah/order_history.dart';
-import 'package:foodyeah/payment.dart';
-import 'package:foodyeah/receipt.dart';
-import 'package:foodyeah/list_dishes.dart';
-import 'package:foodyeah/login.dart';
-import 'package:foodyeah/order_summary.dart';
+import 'package:foodyeah/UI/main_menu.dart';
+import 'package:foodyeah/UI/order_history.dart';
+import 'package:foodyeah/UI/payment.dart';
+import 'package:foodyeah/UI/receipt.dart';
+import 'package:foodyeah/UI/list_dishes.dart';
+import 'package:foodyeah/UI/login.dart';
+import 'package:foodyeah/UI/order_summary.dart';
 void main() => runApp(MaterialApp(title: "Widgets", home: MyApp(), theme: ThemeData(primaryColor: Colors.red)));
 
 class MyApp extends StatelessWidget {

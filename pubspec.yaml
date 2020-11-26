@@ -32,6 +32,10 @@ dependencies:
   #Payment
   dropdownfield: 1.0.0
   grouped_buttons: ^1.0.4
+  
+  #networking
+  http: ^0.12.2
+  jwt_decoder: ^1.0.3
 
 dev_dependencies:
   flutter_test:

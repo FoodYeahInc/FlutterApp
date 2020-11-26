@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:dropdownfield/dropdownfield.dart';
 import 'package:flutter/services.dart';
 import 'package:grouped_buttons/grouped_buttons.dart';
-import 'package:foodyeah/receipt.dart';
+import 'package:foodyeah/UI/receipt.dart';
 // Compra con tarjeta
 // Pantalla donde muestra el total del pedido(costo) y poder ingresar los datos de la tarjeta(checkbox para elegir guardar o no la tarjeta) o elegir una tarjeta guardada
 

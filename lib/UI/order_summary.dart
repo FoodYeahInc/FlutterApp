@@ -1,7 +1,7 @@
-import 'package:foodyeah/dish.dart';
+import 'package:foodyeah/UI/dish.dart';
 import 'package:flutter/material.dart';
-import 'package:foodyeah/payment.dart';
-import 'package:foodyeah/list_dishes.dart';
+import 'package:foodyeah/UI/payment.dart';
+import 'package:foodyeah/UI/list_dishes.dart';
 class OrderSummary extends StatefulWidget {
   @override
   _OrderSummaryState createState() => _OrderSummaryState();

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:foodyeah/main_menu.dart';
+import 'package:foodyeah/UI/main_menu.dart';
+import 'package:foodyeah/model/usuario.dart';
+import 'package:foodyeah/utils/http_helper.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -7,6 +9,15 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  final usuarioController = TextEditingController();
+  final passwordController = TextEditingController();
+  HttpHelper helper;
+  @override
+  void initState(){
+    helper = HttpHelper();
+    //initialize
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -48,6 +59,7 @@ class _LoginState extends State<Login> {
                     ),
                     cursorColor: Colors.white,
                     autocorrect: false,
+                    controller: usuarioController,
                     textAlign: TextAlign.center,
                     decoration: InputDecoration(
                       enabledBorder: UnderlineInputBorder(
@@ -71,6 +83,7 @@ class _LoginState extends State<Login> {
                         color: Colors.white),
                     cursorColor: Colors.white,
                     autocorrect: false,
+                    controller: passwordController,
                     textAlign: TextAlign.center,
                     decoration: InputDecoration(
                       enabledBorder: UnderlineInputBorder(
@@ -90,8 +103,13 @@ class _LoginState extends State<Login> {
                 Center(
                   child: FlatButton(
                     onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => MainMenu()));
+                      //Sacamos el usuario y la contraseña:
+                      helper.login(usuarioController.text, passwordController.text).then((value){
+                        if(value == null) return;
+                        Usuario aux = value;
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => MainMenu(usuario: aux)));                        
+                      });
+
                     },
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(10.0)),
@@ -108,7 +126,7 @@ class _LoginState extends State<Login> {
                       style: TextStyle(
                         fontFamily: 'Solano',
                         fontSize: 25,
-                      ),
+                      ),                      
                     ),
                   ),
                 )
